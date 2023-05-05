@@ -1,6 +1,7 @@
 package mainPackage;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
@@ -36,8 +37,20 @@ public class Main {
                 .sorted((a,b) -> b.compareTo(a))
                 .collect(Collectors.toList());
         System.out.println("Task 2:\n Reverse-sorted and uppercased names:\n" + namesTask2);
+        System.out.println();
 
         //Task 3
-
+        String[] numbers = {"1, 2, 15, 0, 4, 7", "4, 5"};
+        String nums = Arrays.stream(numbers)
+                .map(n -> {
+                    String[] nn = n.split(",");
+                    return nn;
+                })
+                .flatMap(n -> Arrays.stream(n))
+                .map(n -> Integer.parseInt(n.strip()))
+                .sorted()
+                .map(n -> n.toString())
+                .collect(Collectors.joining(", "));
+        System.out.println("Task 3:\n " + nums);
     }
 }

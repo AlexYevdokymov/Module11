@@ -52,5 +52,13 @@ public class Main {
                 .map(n -> n.toString())
                 .collect(Collectors.joining(", "));
         System.out.println("Task 3:\n " + nums);
+        System.out.println();
+
+        //Task 4
+        System.out.println("Task 4:");
+        Randomizer rand = new Randomizer(25214903917L, 11L,(long) Math.pow(2,48));
+        rand.createStream(2)
+                .limit(7)
+                .peek(System.out::println).collect(Collectors.toList());
     }
 }

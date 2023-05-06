@@ -5,6 +5,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static mainPackage.StreamZipper.zip;
 
 public class Main {
     public static void main(String[] args) {
@@ -60,5 +63,13 @@ public class Main {
         rand.createStream(2)
                 .limit(7)
                 .peek(System.out::println).collect(Collectors.toList());
+        System.out.println();
+
+        //Task 5
+        Stream<String> firstStream = Stream.of("Q", "W", "E", "R", "T", "Y");
+        Stream<String> secondStream = Stream.of("0", "1", "2", "3", "4", "5", "6", "7", "8", "9");
+        List<String> result = StreamZipper.zip(firstStream, secondStream)
+                .collect(Collectors.toList());
+        System.out.println("Task 5:\n" + result);
     }
 }
